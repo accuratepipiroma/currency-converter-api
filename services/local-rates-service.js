@@ -24,7 +24,9 @@ exports.updateLocalRates = async (newData) => {
     throw new Error("Invalid base currency format.");
   }
 
-  const invalidRates = Object.entries(newData.rates).filter(
+  const updatedRates = { ...localRates.rates, ...newData.rates };
+
+  const invalidRates = Object.entries(updatedRates).filter(
     ([currency, rate]) => {
       return (
         !supportedCurrencies.includes(currency) ||
@@ -43,5 +45,5 @@ exports.updateLocalRates = async (newData) => {
 
   localRates.updated_at = Math.floor(Date.now() / 1000);
   localRates.base_currency = newData.base_currency;
-  localRates.rates = newData.rates;
+  localRates.rates = updatedRates;
 };
