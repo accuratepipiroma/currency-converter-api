@@ -1,0 +1,13 @@
+# Node.js / NPM
+node_modules/
+npm-debug.log
+.env
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Logs and runtime data
+logs/
+*.log
+*.pid
