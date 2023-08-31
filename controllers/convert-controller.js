@@ -1,5 +1,5 @@
-const conversionService = require("../services/conversion-service");
-const localRatesService = require("../services/local-rates-service");
+const conversionService = require("../services/convert-service");
+const localRatesService = require("../services/update-local-rates-service");
 const { supportedCurrencies } = require("../constants");
 
 async function convertCurrency(req, res) {

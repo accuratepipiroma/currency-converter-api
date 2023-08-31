@@ -1,4 +1,4 @@
-const localRatesService = require("../services/local-rates-service");
+const localRatesService = require("../services/update-local-rates-service");
 
 exports.updateLocalRates = async (req, res) => {
   try {

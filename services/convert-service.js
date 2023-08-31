@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const axios = require("axios");
-const localRatesService = require("./local-rates-service");
+const localRatesService = require("./update-local-rates-service");
 const openExchangeRatesURL = process.env.OPENEXCHANGERATES_LATESTJSON_URL;
 const appID = process.env.OPENEXCHANGERATES_APP_ID;
 
