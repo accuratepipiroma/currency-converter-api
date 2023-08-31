@@ -22,21 +22,16 @@ async function getExternalRates() {
 async function getRates() {
   const currentTime = Math.floor(Date.now() / 1000);
 
-  // Check if it's been more than an hour since last fetch AND it's a new hour
   if (currentTime - lastFetchTime > 3600 || new Date().getMinutes() === 0) {
-    // Fetch fresh rates if more than 1 hour has passed or at the beginning of a new hour
     cachedRates = await getExternalRates();
     lastFetchTime = currentTime;
   }
 
   if (!cachedRates) {
-    // If external rates couldn't be fetched, use cached rates
     return cachedRates;
   }
 
   const localRates = localRatesService.getLocalRates();
-
-  // Compare external rates with local rates and use the better one for conversion
   const convertedRates = {};
   for (const currency in cachedRates) {
     const externalRate = cachedRates[currency];
